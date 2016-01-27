@@ -11,7 +11,7 @@ var UserSchema = new Schema({
   gender: String
 });
 
-var User = mongodb.mongoose.model("User", UserSchema);
+var User = mongodb.mongoose.model("Teste", UserSchema);
 
 UserSchema.statics.createInstance = function (firstName, lastName, username) {
   var User = mongoose.model('User');
