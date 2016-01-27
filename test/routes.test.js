@@ -13,7 +13,6 @@ var User = require('./../model/user.js');
 
 describe('Routing', function() {
   describe('Users', function() {
-
     it('should POST users returning 201 status code', function(done) {
       dataset.forEach(function(entry) {
         request(url)

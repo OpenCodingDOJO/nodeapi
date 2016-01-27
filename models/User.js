@@ -4,7 +4,7 @@ var Schema = mongodb.mongoose.Schema;
 var UserSchema = new Schema({
   firstName: String,
   lastName: String,
-  username: String,
+  userName: String,
   email: String,
   age: Number,
   location: String,
@@ -13,15 +13,25 @@ var UserSchema = new Schema({
 
 var User = mongodb.mongoose.model("User", UserSchema);
 
-var UserDAO = function(){};
-
-UserDAO.prototype.save = function(obj, callback){
-  var instance = new User(obj);
-  console.log("Save method");
-  instance.save(function(err) {
-    console.log(err);
-    callback(err);
+UserSchema.statics.createInstance = function (firstName, lastName, username) {
+  var User = mongoose.model('User');
+  return new User({
+    firstName: firstName,
+    lastName: lastName,
+    userName: username
   });
-}
+};
 
-module.exports = new UserDAO();
+
+// var UserDAO = function(){};
+
+// UserDAO.prototype.save = function(obj, callback){
+//   var instance = new User(obj);
+//   console.log("Save method");
+//   instance.save(function(err) {
+//     console.log(err);
+//     callback(err);
+//   });
+// }
+
+module.exports = User;
