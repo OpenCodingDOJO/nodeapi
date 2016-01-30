@@ -11,27 +11,7 @@ var UserSchema = new Schema({
   gender: String
 });
 
-var User = mongodb.mongoose.model("Teste", UserSchema);
+var User = mongodb.mongoose.model("User", UserSchema);
 
-UserSchema.statics.createInstance = function (firstName, lastName, username) {
-  var User = mongoose.model('User');
-  return new User({
-    firstName: firstName,
-    lastName: lastName,
-    userName: username
-  });
-};
-
-
-// var UserDAO = function(){};
-
-// UserDAO.prototype.save = function(obj, callback){
-//   var instance = new User(obj);
-//   console.log("Save method");
-//   instance.save(function(err) {
-//     console.log(err);
-//     callback(err);
-//   });
-// }
-
+// exports.UserSchema = UserSchema;
 module.exports = User;
